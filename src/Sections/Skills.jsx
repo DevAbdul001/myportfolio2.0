@@ -14,7 +14,7 @@ const Skills = () => {
             delay:0.7,
             scrollTrigger:{
               trigger:'#skills',
-              start:'top center',
+              start:'top bottom',
               end:'bottom center',
               toggleActions: 'play none none reverse'
             }
@@ -28,7 +28,7 @@ const Skills = () => {
             delay:0.7,
             scrollTrigger:{
               trigger:'#skills',
-              start:'top center',
+              start:'top bottom',
               end:'bottom center',
               toggleActions: 'play none none reverse'
             }
@@ -42,7 +42,7 @@ const Skills = () => {
             delay:0.7,
             scrollTrigger:{
               trigger:'#skills',
-              start:'top center',
+              start:'top bottom',
               end:'bottom center',
               toggleActions: 'play none none reverse'
             }
@@ -56,7 +56,7 @@ const Skills = () => {
             delay:0.7,
             scrollTrigger:{
               trigger:'#skills',
-              start:'top center',
+              start:'top bottom',
               end:'bottom center',
               toggleActions: 'play none none reverse'
             }
@@ -70,7 +70,7 @@ const Skills = () => {
             delay:0.9,
             scrollTrigger:{
                 trigger:'#skills',
-                start:'top center',
+                start:'top bottom',
                 end:'bottom center',
                 toggleActions: 'play none none reverse'
           }
