@@ -1,4 +1,4 @@
-import profilePicture from './profilepicture.png'
+import profilePicture from './profilePicture.png'
 import illustration from './illustration.png'
 import jsx from './react.png'
 import javaScript from './js.png'
