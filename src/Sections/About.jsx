@@ -58,7 +58,7 @@ gsap.fromTo('#text',{
   delay:0.1,
   scrollTrigger:{
     trigger:'#about',
-    start:'top center',
+    start:'top bottom',
     end:'bottom center',
     toggleActions: 'play none none reverse'
   }
