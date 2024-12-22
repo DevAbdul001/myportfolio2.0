@@ -2,7 +2,27 @@ import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 const ContactSection = () => {
-  const [state, handleSubmit] = useForm("https://formspree.io/f/xrbgvqwb");
+  const [state, handleSubmit] = useForm("xrbgvqwb"); // Ensure the correct form ID is passed
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  // Function to handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Function to handle form submission
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    await handleSubmit(e); // Submit the form via Formspree
+    if (state.succeeded) {
+      setFormData({ name: "", email: "", message: "" }); // Clear form fields
+    }
+  };
 
   if (state.succeeded) {
     return (
@@ -24,7 +44,7 @@ const ContactSection = () => {
         </h2>
 
         <form 
-          onSubmit={handleSubmit} 
+          onSubmit={handleFormSubmit} 
           className="space-y-6 bg-white p-8 rounded-xl shadow-lg"
         >
           <div>
@@ -39,6 +59,8 @@ const ContactSection = () => {
               type="text" 
               name="name"
               required
+              value={formData.name}
+              onChange={handleChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               placeholder="Your Name"
             />
@@ -61,6 +83,8 @@ const ContactSection = () => {
               type="email" 
               name="email"
               required
+              value={formData.email}
+              onChange={handleChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               placeholder="you@example.com"
             />
@@ -83,6 +107,8 @@ const ContactSection = () => {
               name="message"
               rows={4}
               required
+              value={formData.message}
+              onChange={handleChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300  rounded-md shadow-sm focus:ring-coral-red focus:border-coral-red"
               placeholder="Tell me about your project..."
             />
